@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class EmployeeService {
 
   private baseUrl = '/api/v1/employees';
@@ -12,11 +13,11 @@ export class EmployeeService {
   constructor(private http: HttpClient) { }
 
   getEmployee(id: number): Observable<Object> {
-    return this.http.get('${this.baseUrl}/${id}');
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 
   createEmployee(employee: Object): Observable<Object> {
-    return this.http.post('${this.baseUrl}', employee);
+    return this.http.post(`${this.baseUrl}`, employee);
   }
 
   updateEmployee(id: number, value: any): Observable<Object> {
